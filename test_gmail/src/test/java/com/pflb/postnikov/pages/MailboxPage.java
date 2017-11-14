@@ -11,7 +11,10 @@ public class MailboxPage extends AbstractPage{
     private String body;
     private String themeNumber;
 
-    @FindBy(css = ".gb_fb")
+//    @FindBy(css = ".gb_fb")
+//    private WebElement accountButton;
+
+    @FindBy(xpath = "/html/body/div[7]/div[3]/div/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/a")
     private WebElement accountButton;
 
     @FindBy(css = ".T-I-KE")
