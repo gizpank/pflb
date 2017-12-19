@@ -86,7 +86,8 @@ public class PageSteps {
 //    selenium.StaleElementReferenceException: The element reference of <span> stale:
 //    either the element is no longer attached to the DOM or the page has been refreshed
     @И("^поля черновика сохранены корректно$")
-    public void checkDraft() {
+    public void checkDraft() throws InterruptedException {
+        Thread.sleep(1000);
         Assert.assertTrue(mailboxPage.checkDraftFields());
     }
 

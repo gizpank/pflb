@@ -11,9 +11,6 @@ public class MailboxPage extends AbstractPage{
     private String body;
     private String themeNumber;
 
-//    @FindBy(css = ".gb_fb")
-//    private WebElement accountButton;
-
     @FindBy(xpath = "/html/body/div[7]/div[3]/div/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/a")
     private WebElement accountButton;
 
@@ -79,12 +76,11 @@ public class MailboxPage extends AbstractPage{
 
 //ищем новое сообщение в списке черновиков
     public boolean checkNewMessageInDrafts() {
-//        WebElement newMessageLink = driver.findElement(By.xpath("//span[className=\"bog\"]"));
         try {
+            Thread.sleep(1000);
             WebElement newMessageLink = driver.findElement(By.xpath("//span[text()=\"" + theme + "\"]"));
             this.newMessageLink = newMessageLink;
             return newMessageLink.isDisplayed();
-//            return newMessageLink.getText().equals(theme);
         } catch (Exception e) {
             return false;
         }
@@ -133,9 +129,8 @@ public class MailboxPage extends AbstractPage{
 //ищем новое сообщение в списке отправленных (bold)
     public boolean checkSendMessageInSent() {
         try {
-            System.out.println("//span[text()=\""+theme+"\"]");
-//            System.out.println("//span[text()=\"<b>"+theme+"</b>\"]");
-            WebElement newMessageLink2 = driver.findElement(By.xpath("//span[1][text()=\"<b>"+theme+"</b>\"]"));
+            Thread.sleep(1000);
+            WebElement newMessageLink2 = driver.findElement(By.xpath("//span/b[text()=\""+theme+"\"]"));
             return newMessageLink2.isDisplayed();
         } catch (Exception e) {
             return false;
