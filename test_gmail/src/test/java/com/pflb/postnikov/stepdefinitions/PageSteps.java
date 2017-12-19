@@ -16,7 +16,7 @@ public class PageSteps {
     }
 
     @И("^нажимает кнопку Далее$")
-    public void clickEnterButton(){
+    public void clickEnterButton() {
         loginPage.clickNextButton();
     }
 
@@ -28,7 +28,7 @@ public class PageSteps {
     private MailboxPage mailboxPage = new MailboxPage();
 
     @Тогда("^пользователь '(.+)' авторизован$")
-    public void checkForUserAuthenticated(String userName){
+    public void checkForUserAuthenticated(String userName) {
         Assert.assertTrue(mailboxPage.getAccountButtonTitle().contains(userName));
     }
 
@@ -38,7 +38,7 @@ public class PageSteps {
     }
 
     @Тогда("^всплывает окно Новое сообщение$")
-    public void checkCreateNewMessage(){
+    public void checkCreateNewMessage() {
         Assert.assertTrue(mailboxPage.checkCreateNewMessage());
     }
 
@@ -78,11 +78,11 @@ public class PageSteps {
     }
 
     @То("^черновик открывается$")
-    public void checkOpenDraft(){
+    public void checkOpenDraft() {
         Assert.assertTrue(mailboxPage.checkCreateNewMessage());
     }
 
-//    срабатывает не всегда
+    //    срабатывает не всегда
 //    selenium.StaleElementReferenceException: The element reference of <span> stale:
 //    either the element is no longer attached to the DOM or the page has been refreshed
     @И("^поля черновика сохранены корректно$")
@@ -97,7 +97,7 @@ public class PageSteps {
     }
 
     @Тогда("^письмо корректно отправляется$")
-    public void checkSendMessage(){
+    public void checkSendMessage() {
         Assert.assertTrue(mailboxPage.submitSendMessage());
     }
 
@@ -117,7 +117,7 @@ public class PageSteps {
     }
 
     @Пусть("^пользователь нажимает кнопку Аккаунт$")
-    public void clickAccountButton(){
+    public void clickAccountButton() {
         mailboxPage.clickAccountButton();
     }
 
@@ -131,5 +131,6 @@ public class PageSteps {
     @Тогда("^происходит корректный выход из почты$")
     public void submitLogout() {
         Assert.assertTrue(logoutPage.submitLogout());
+        AbstractTest.tearDown();
     }
 }

@@ -26,7 +26,7 @@ public class LoginPage extends AbstractPage {
         loginField.sendKeys(login);
     }
 
-    public  void clickNextButton() {
+    public void clickNextButton() {
         loginNextButton.click();
     }
 

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MailboxPage extends AbstractPage{
+public class MailboxPage extends AbstractPage {
 
     private String recipient;
     private String theme;
@@ -23,10 +23,10 @@ public class MailboxPage extends AbstractPage{
     @FindBy(name = "to")
     private WebElement newMessageRecipient;
 
-    @FindBy (name = "subjectbox")
+    @FindBy(name = "subjectbox")
     private WebElement newMessageTheme;
 
-    @FindBy(xpath = "//div[@class=\"Am Al editable LW-avf\"]" )
+    @FindBy(xpath = "//div[@class=\"Am Al editable LW-avf\"]")
     private WebElement newMessageBody;
 
     @FindBy(xpath = "//img[@class=\"Ha\"]")
@@ -74,7 +74,7 @@ public class MailboxPage extends AbstractPage{
 
     private WebElement newMessageLink;
 
-//ищем новое сообщение в списке черновиков
+    //ищем новое сообщение в списке черновиков
     public boolean checkNewMessageInDrafts() {
         try {
             Thread.sleep(1000);
@@ -90,13 +90,13 @@ public class MailboxPage extends AbstractPage{
         newMessageLink.click();
     }
 
-    @FindBy(xpath = "//div[@class=\"oL aDm az9\"]/span" )
+    @FindBy(xpath = "//div[@class=\"oL aDm az9\"]/span")
     private WebElement newDraftRecipient;
 
-    @FindBy(xpath = "//input[@name=\"subject\"]" )
+    @FindBy(xpath = "//input[@name=\"subject\"]")
     private WebElement newDraftTheme;
 
-    @FindBy(xpath = "//div[@class=\"Am Al editable LW-avf\"]" )
+    @FindBy(xpath = "//div[@class=\"Am Al editable LW-avf\"]")
     private WebElement newDraftBody;
 
     public boolean checkDraftFields() {
@@ -105,15 +105,15 @@ public class MailboxPage extends AbstractPage{
                 newDraftBody.getText().equals(body));
     }
 
-//определяем кнопку "Отправить"
+    //определяем кнопку "Отправить"
     @FindBy(xpath = "//div[@class=\"T-I J-J5-Ji aoO T-I-atl L3\"]")
-    private  WebElement sendMessageButton;
+    private WebElement sendMessageButton;
 
     public void clickSendMessageButton() {
         sendMessageButton.click();
     }
 
-//подтверждение корректной отправки письма всплывающим сообщением
+    //подтверждение корректной отправки письма всплывающим сообщением
     public boolean submitSendMessage() {
         WebElement sendMessageSubmitText = driver.findElement(By.xpath("//span[@id=\"link_vsm\"]"));
         return sendMessageSubmitText.getText().equals("Просмотреть сообщение");
@@ -126,18 +126,18 @@ public class MailboxPage extends AbstractPage{
         sentLink.click();
     }
 
-//ищем новое сообщение в списке отправленных (bold)
+    //ищем новое сообщение в списке отправленных (bold)
     public boolean checkSendMessageInSent() {
         try {
             Thread.sleep(1000);
-            WebElement newMessageLink2 = driver.findElement(By.xpath("//span/b[text()=\""+theme+"\"]"));
+            WebElement newMessageLink2 = driver.findElement(By.xpath("//span/b[text()=\"" + theme + "\"]"));
             return newMessageLink2.isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
 
-//выходим из аккаунта
+    //выходим из аккаунта
     public void clickAccountButton() {
         accountButton.click();
     }

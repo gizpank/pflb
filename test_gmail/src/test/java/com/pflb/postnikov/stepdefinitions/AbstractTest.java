@@ -11,10 +11,10 @@ import org.testng.annotations.AfterTest;
         features = "src/test/resources/features",
         glue = "stepdefinitions"
 )
-public class AbstractTest extends AbstractTestNGCucumberTests{
+public class AbstractTest extends AbstractTestNGCucumberTests {
 
     @AfterTest
-    public void tearDown() {
+    public static void tearDown() {
         System.out.println("Closing driver...");
         DriverManager.closeDriver();
     }
