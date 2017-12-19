@@ -77,14 +77,12 @@ public class PageSteps {
         mailboxPage.clickNewMessageInDraftsList();
     }
 
+    //Черновик иногда не открывается даже при ручном тестировании
     @То("^черновик открывается$")
     public void checkOpenDraft() {
         Assert.assertTrue(mailboxPage.checkCreateNewMessage());
     }
 
-    //    срабатывает не всегда
-//    selenium.StaleElementReferenceException: The element reference of <span> stale:
-//    either the element is no longer attached to the DOM or the page has been refreshed
     @И("^поля черновика сохранены корректно$")
     public void checkDraft() throws InterruptedException {
         Thread.sleep(1000);

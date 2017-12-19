@@ -11,7 +11,7 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\drivers\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "test_gmail\\selenium\\drivers\\geckodriver.exe");
             driver = new FirefoxDriver();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
